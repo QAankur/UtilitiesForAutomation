@@ -6,7 +6,7 @@ public class ExcelUtilExecution {
 
 	public static void main(String[] args) {
 		
-		String[][] data=ExcelUtility.getDataFromExcelAsArray("C:\\Users\\Anuj\\Selenium_Utilities\\UtilitiesAutomation\\src\\main\\java\\resources\\TestData.xlsx", "Data");
+		/*String[][] data=ExcelUtility.getDataFromExcelAsArray("C:\\Users\\Anuj\\Selenium_Utilities\\UtilitiesAutomation\\src\\main\\java\\resources\\TestData.xlsx", "Data");
 		for(int i=0; i<4; i++)
 		{
 			for(int j=0; j<3; j++)
@@ -14,8 +14,10 @@ public class ExcelUtilExecution {
 				System.out.print(data[i][j]);
 			}
 			System.out.println("\n");
-		}
+		}*/
 
+		/*System.out.print(ExcelUtility.verifyColumnIsPresent("C:\\Users\\Anuj\\Selenium_Utilities\\UtilitiesAutomation\\src\\main\\java\\resources\\TestData.xlsx", "Data2","CITY"));*/
+		//System.out.print(ExcelUtility.getColumnIndex("C:\\Users\\Anuj\\Selenium_Utilities\\UtilitiesAutomation\\src\\main\\java\\resources\\TestData.xlsx", "Data2","CITY"));
 	}
 
 }
