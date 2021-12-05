@@ -1,12 +1,15 @@
 package commonSteps;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 
 public class WebElementUtility {
 
-	/*
+	/*1
 	 * Verifies that text of the field starts with given value
 	 * 
 	 */
@@ -30,7 +33,7 @@ public class WebElementUtility {
 		return flag;
 	}
 
-	/*
+	/*2
 	 * Verifies that text of the field starts with given value
 	 * 
 	 */
@@ -54,7 +57,7 @@ public class WebElementUtility {
 		return flag;
 	}
 
-	/*
+	/*3
 	 * Verifies that text of the field starts with given value
 	 * 
 	 */
@@ -77,7 +80,7 @@ public class WebElementUtility {
 		return flag;
 	}
 	
-	/*
+	/*4
 	 * Verifies that background color of the field is same is given color code
 	 * 
 	 */
@@ -103,7 +106,7 @@ public class WebElementUtility {
 		return flag;
 	}
 
-	/*
+	/*5
 	 * Verifies that color of the field is same is given color code
 	 * 
 	 */
@@ -126,6 +129,88 @@ public class WebElementUtility {
 		}
 
 		return flag;
+		
 	}
+	
+	/*6
+	 * User enters value in field
+	 */
 
+	public static void enterValueInField(WebDriver driver, String xpath,String value)
+	{
+		WebElement element=null;
+		try {
+			element= driver.findElement(By.xpath(xpath));
+		} catch (Exception e) {
+			System.out.println("Exception is " + e);
+		}
+		if(element.isEnabled())
+		{
+		element.sendKeys(value);
+		}
+		else
+		{
+			System.out.println("element is not enabled");
+		}
+	}
+	
+	/*7
+	 *  user clears field , enters value and click
+	 */
+	public static void clearFieldAndEnterValue(WebDriver driver, String xpath,String value)
+	{
+		WebElement element=null;
+		try {
+			element.clear();
+			element= driver.findElement(By.xpath(xpath));
+		} catch (Exception e) {
+			System.out.println("Exception is " + e);
+		}
+		if(element.isEnabled())
+		{
+		element.sendKeys(value);
+		}
+		else
+		{
+			System.out.println("element is not enabled");
+		}
+	}
+	
+	/*8
+	 * user move to element only
+	 */
+	public static void userMoveToElement(WebDriver driver, String xpath)
+	{
+		Actions action=new Actions(driver);
+		try {
+			action.moveToElement(driver.findElement(By.xpath(xpath))).perform();
+		} catch (Exception e) {
+			System.out.println("Exception is " + e);
+		}
+	}
+	
+	/*9
+	 * user move to element and click
+	 * 
+	 */
+	public static void userMoveToElementAndClick(WebDriver driver, String xpath)
+	{
+		Actions action=new Actions(driver);
+		try {
+			action.moveToElement(driver.findElement(By.xpath(xpath))).click().perform();
+		} catch (Exception e) {
+			System.out.println("Exception is " + e);
+		}
+	}
+	
+	/*10
+	 * Scroll tp given element
+	 */
+	public static void userScrollToGivenElement(WebDriver driver, String xpath)
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		WebElement element=driver.findElement(By.xpath(xpath));
+		js.executeScript("arguments[0].scrollIntoView()", element);
+	}
+	
 }

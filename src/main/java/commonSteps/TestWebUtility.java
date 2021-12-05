@@ -23,8 +23,8 @@ public class TestWebUtility {
 	public void test()
 	{
 		driver.get("https://www.opencart.com/");
-		Boolean b=WebElementUtility.verifyThatColorOfFieldIs(driver, "//div[@id='feature']", "#000000");
-		System.out.println(b);	
+		WebElementUtility.userScrollToGivenElement(driver, "//h5[contains(text(),'Support')]");
+		//System.out.println(b);	
 	}
 	
 	
